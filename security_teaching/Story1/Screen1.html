@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="utf-8">
+<script src = "../jquery-3.4.1.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script>
+
+/**/
+//CSV読み込み
+var xhr = new XMLHttpRequest();
+$(function(){
+	var target = '#address';
+	var csvList;
+	var insert = '';
+	$.ajax({
+		//アドレスリストにCSVファイルの中身を表示
+		url: 'address.csv',
+		succsess: function(data){
+			//中身を配列に格納
+			csvList = $.csv()(data);
+			//挿入
+			for(var i = 1; i < csvList.length; i++){
+				insert += '<li id = "'+csvList[i][0]+'">';
+				insert += '<p class="address">'+csvList[i][1]+'</p>'
+				insert += '<p class="subject">'+csvList[i][2]+'</p>'
+				insert += '</li>';
+			}
+		},
+		$(target){append(insert)}
+	});
+});
+
+
+//判定
+$(document).ready(function(){
+    //正解だったら正解画面へ、違ったら不正解画面へ遷移する
+    $(".address").click(function(){
+        var ansnum = $(this).index()+1;
+        if(ansnum == 1){
+            window.location.href='Yes1.html';
+        }else{
+            window.location.href='No1.html';
+        }
+    });
+});
+
+</script>
+<header>
+	<div class="container">
+		<div class="header-inner">
+			<!--ヘッダー-->
+			<div class="logo">MailBox</div>
+		</div><!--/.header-inner-->
+	</div><!--/.container-->
+</header>
+<nav>	
+	<div class="container">
+		<div class="nav-inner"></div>
+	</div>	
+</nav>	
+<section>
+	<div class="container">
+	<main>
+		<!--コンテンツ-->
+		<!--アドレスリスト-->
+		<!--
+		<ol class="address">
+			<li>test@email.com,</li>
+			<li>tes2@email.com</li>
+			<li>Test@email.com</li>
+			<li>test@yatta.com</li>
+		</ol>
+		-->
+	</main>
+	<aside class="sidebar">
+	<!--サイドバーの要素-->
+	<ul class="tool">
+        <li>受信箱</li>
+        <li>送信済み</li>
+        <li>下書き</li>
+        <li>迷惑メール</li>
+        <li>ゴミ箱</li>
+    </ul>
+	</aside><!--sidebar-->
+	</div>
+</section>
+<footer>
+	<div class="container">
+		<div class="footer-inner">
+		<!--フッター-->
+		<p class="copyright">footer ©20XX HTML/CSS Technic</p>
+		</div><!--/.footer-inner-->
+	</div><!--/.container-->
+</footer>
+</body>
+</html>
