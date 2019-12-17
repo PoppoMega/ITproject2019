@@ -3,37 +3,43 @@
 <head>
 <title></title>
 <meta charset="utf-8">
-<script src = "../jquery-3.4.1.min.js"></script>
+<script src = "../jquery-3.4.1.min.js"  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.5/jquery.csv.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/normalize.css">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <script>
-
 /**/
 //CSV読み込み
+/*
 var xhr = new XMLHttpRequest();
+query = "address.csv";
+XHR.open("GET",query,true);
+*/
+XMLHttpRequest.getResponseHeader(Access-Control-Allow-Origin: * );
 $(function(){
 	var target = '#address';
-	var csvList;
+	var csv = $.csv.toArrays(data);
 	var insert = '';
-	$.ajax({
+	$(csv).each(function(){
 		//アドレスリストにCSVファイルの中身を表示
-		url: 'address.csv',
-		succsess: function(data){
+		if(this.length > 0){
 			//中身を配列に格納
-			csvList = $.csv()(data);
-			//挿入
-			for(var i = 1; i < csvList.length; i++){
-				insert += '<li id = "'+csvList[i][0]+'">';
-				insert += '<p class="address">'+csvList[i][1]+'</p>'
-				insert += '<p class="subject">'+csvList[i][2]+'</p>'
-				insert += '</li>';
-			}
-		},
-		$(target){append(insert)}
+			insert += '<tr>';
+			$(this).each(function(){
+				insert += '<td>' + this + '</td>';
+			});
+			insert += '</tr>';
+		}
 	});
+	$(target).append(insert);
+});
+var csvfile = 'address.csv';
+$(function(){
+	$.get(csvfile, readCsv, 'text');
 });
 
 
