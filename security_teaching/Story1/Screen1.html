@@ -19,7 +19,7 @@ var xhr = new XMLHttpRequest();
 query = "address.csv";
 XHR.open("GET",query,true);
 */
-XMLHttpRequest.getResponseHeader(Access-Control-Allow-Origin: * );
+/*
 $(function(){
 	var target = '#address';
 	var csv = $.csv.toArrays(data);
@@ -41,7 +41,7 @@ var csvfile = 'address.csv';
 $(function(){
 	$.get(csvfile, readCsv, 'text');
 });
-
+*/
 
 //判定
 $(document).ready(function(){
@@ -57,6 +57,7 @@ $(document).ready(function(){
 });
 
 </script>
+<h2>アドレス[test@email.com]から来たメールを開きなさい。</h2>
 <header>
 	<div class="container">
 		<div class="header-inner">
@@ -75,14 +76,12 @@ $(document).ready(function(){
 	<main>
 		<!--コンテンツ-->
 		<!--アドレスリスト-->
-		<!--
-		<ol class="address">
-			<li>test@email.com,</li>
+		<ul class="address">
+			<li>test@email.com</li>
 			<li>tes2@email.com</li>
 			<li>Test@email.com</li>
 			<li>test@yatta.com</li>
-		</ol>
-		-->
+		</ul>
 	</main>
 	<aside class="sidebar">
 	<!--サイドバーの要素-->
