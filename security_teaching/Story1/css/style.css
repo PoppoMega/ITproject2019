@@ -18,6 +18,9 @@ body{
 ul li{
 	list-style:none;
 }
+.subject{
+	margin-bottom:10px;
+}
 .navbar{
 	display: none;
 	margin: 0;

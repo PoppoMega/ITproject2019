@@ -2,60 +2,15 @@
 <html>
 <head>
 <title></title>
-<meta charset="utf-8">
-<!--<script src = "jquery-3.4.1.min.js"  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.5/jquery.csv.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1">-->
+<meta charset="utf-8"><!-- -->
+<script type = "text/javascript" src = "../jquery-3.4.1.min.js"></script>
+<script type = "text/javascript" src = "jquery.xdomainajax.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/normalize.css">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<script>
-/**/
-//CSV読み込み
-/*
-var xhr = new XMLHttpRequest();
-query = "address.csv";
-XHR.open("GET",query,true);
-*/
-/*
-$(function(){
-	var target = '#address';
-	var csv = $.csv.toArrays(data);
-	var insert = '';
-	$(csv).each(function(){
-		//アドレスリストにCSVファイルの中身を表示
-		if(this.length > 0){
-			//中身を配列に格納
-			insert += '<tr>';
-			$(this).each(function(){
-				insert += '<td>' + this + '</td>';
-			});
-			insert += '</tr>';
-		}
-	});
-	$(target).append(insert);
-});
-var csvfile = 'address.csv';
-$(function(){
-	$.get(csvfile, readCsv, 'text');
-});
-*/
 
-//判定
-//正解だったらYES,間違ってたらNOに飛ばす。
-var num = 0;
-document.getById("address").onclick = function(){
-	/*
-	if(){
-
-	}
-	*/
-}
-
-
-</script>
 <h2>アドレス[test@email.com]から来たメールを開きなさい。</h2>
 <header>
 	<div class="container">
@@ -75,12 +30,25 @@ document.getById("address").onclick = function(){
 	<main>
 		<!--コンテンツ-->
 		<!--アドレスリスト-->
-		<ul class="address">
-			<li>test@email.com</li>
-			<li>tes2@email.com</li>
-			<li>Test@email.com</li>
-			<li>test@yatta.com</li>
+		<ul id="address">
+			<div class="a1">
+				<li>test@email.com</li>
+				<li class="subject">testsubject1</li>
+			</div>
+			<div class="a2">
+				<li>tes2@email.com</li>
+				<li class="subject">testsubject1</li>
+			</div>
+			<div class="a3">
+				<li>Test@email.com</li>
+				<li class="subject">testsubject1</li>
+			</div>
+			<div class="a4">
+				<li>test@yatta.com</li>
+				<li class="subject">testsubject1</li>
+			</div>
 		</ul>
+	</ul>
 	</main>
 	<aside class="sidebar">
 	<!--サイドバーの要素-->
@@ -102,5 +70,26 @@ document.getById("address").onclick = function(){
 		</div><!--/.footer-inner-->
 	</div><!--/.container-->
 </footer>
+<script>
+	/**/
+	//CSV読み込み
+	/*
+	var xhr = new XMLHttpRequest();
+	query = "address.csv";
+	XHR.open("GET",query,true);
+	*/
+	$('#address').click(function(){
+		var changeFrom = false;
+		$('.a1').on('click',function(){
+			console.log('a1がクリックされた');
+			$(window).on('beforeunload',function(){
+				if(changeFrom) return 'このアドレスを選びますか？ \n本当に？'; 
+			})
+			
+		});
+		console.log('クリックされたぞ');//確認用
+	});
+	
+	</script>
 </body>
 </html>
