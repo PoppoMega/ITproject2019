@@ -63,16 +63,13 @@ section .container{
 
 main{
 	padding: 20px 10px 20px 10px;
-	background: #fffde3;
 	height: 400px;
 }
 .sidebar{
 	padding:20px 10px 20px 10px;
-	background: #c0f5b9;
 }
 .footer-inner{
 	padding: 20px 16px 10px 16px;
-	background: #bad7f5;
 }
 /*分かりやすくするために適用してるCSS*/
 @media only screen and (min-width: 768px){
