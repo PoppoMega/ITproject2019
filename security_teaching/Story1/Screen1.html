@@ -73,22 +73,19 @@
 <script>
 	/**/
 	//判定
-	var ans_flag = false;
 	$('#address').click(function(){
 		$('.a1').on('click',function(){
-			ans_flag = true;
 			console.log('a1がクリックされた');//確認用
 			if(confirm('このアドレスでよろしいですか?')){
 				window.location.href = "Yes1.html";
 			}
-			ans_flag = false;
 		});
-
-		if(ans_flag == true){
-			if(confirm('このアドレスで?')){
+		if(!$(event.target).closest('.a1').length){
+			if(confirm('このアドレスでよろしいですか?')){
 				window.location.href = "No1.html";
 			}
-		}	
+		}
+	
 		console.log('クリックされたぞ');//確認用
 	});
 	
