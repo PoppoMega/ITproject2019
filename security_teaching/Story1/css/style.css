@@ -18,6 +18,9 @@ body{
 ul li{
 	list-style:none;
 }
+.tool li{
+	margin-bottom:20px;
+}
 .subject{
 	margin-bottom:10px;
 }
