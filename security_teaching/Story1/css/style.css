@@ -1,5 +1,8 @@
 @charset "utf-8";
-
+*{
+	margin:0;
+	padding:0;
+}
 body{
 	margin:0;
 }
@@ -15,10 +18,19 @@ body{
 	background-size: contain;
 }
 /*ナビゲーション*/
+ul{
+	padding:10px;
+}
 ul li{
 	list-style:none;
 }
+.tool{
+	position:relative;
+	top:10px;
+
+}
 .tool li{
+	display: block;
 	margin-bottom:20px;
 }
 .subject{
@@ -51,7 +63,7 @@ section .container{
 }
 .header-inner{
 	background: #fff;
-	padding: 10px 10px 0 10px;
+	padding: 10px 0 10px 0;
 }
 .nav-inner{
 	padding: 10px 10px 0 10px;
@@ -70,6 +82,8 @@ main{
 }
 .sidebar{
 	padding:20px 10px 20px 10px;
+	max-width: 200px;
+	/*margin-left:10px;*/	
 }
 .footer-inner{
 	padding: 20px 16px 10px 16px;
@@ -90,14 +104,16 @@ main{
 		flex: 1 1 auto;
 		order: 2;
 	}
+	/*
 	.sidebar1{
 		flex: 0 0 200px;
-		order: 1;/*orderで並び順を設定*/
+		order: 1; /*orderで並び順を設定
 	}
 	.sidebar2{
 		flex: 0 0 250px;
-		order: 3;/*orderで並び順を設定*/
+		order: 3;orderで並び順を設定s
 	}
+	*/
 	footer .container{
 		padding-top:20px;
 	}
