@@ -33,6 +33,9 @@ ul li{
 	display: block;
 	margin-bottom:20px;
 }
+#address li{
+	border:solid 1px #000;
+}
 .subject{
 	margin-bottom:10px;
 }
@@ -54,7 +57,7 @@ ul li{
 	color: #565656;
 }
 .container{
-	margin: 0 auto 0 auto;
+	/*margin:;*/
 	max-width: 1000px;
 }
 section .container{
