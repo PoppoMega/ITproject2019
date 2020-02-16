@@ -110,6 +110,16 @@
 	/**/
 	//判定
 	$('#address').click(function(){
+		if(!$(event.target).closest('.a1').length){
+			if(confirm('このアドレスでよろしいですか?')){
+				window.location.href = "No1.html";
+			}
+		}else{
+			if(confirm('このアドレスでよろしいですか?')){
+				window.location.href = "Yes1.html";
+			}
+		}
+		/*
 		$('.a1').on('click',function(){
 			//console.log('a1がクリックされた');//確認用
 			if(confirm('このアドレスでよろしいですか?')){
@@ -119,9 +129,12 @@
 		if(!$(event.target).closest('.a1').length){
 			if(confirm('このアドレスでよろしいですか?')){
 				window.location.href = "No1.html";
+				
 			}
+			//break;
 		}
 		//console.log('クリックされたぞ');//確認用
+		*/
 	});
 	
 	</script>
